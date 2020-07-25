@@ -21,7 +21,7 @@ function startgame() {
   document.getElementById(`${newnumber}`).style.backgroundColor = "yellow";
   setTimeout(function () {
     document.getElementById(`${newnumber}`).style.backgroundColor = "cyan";
-  }, 2000);
+  }, 1000);
 }
 
 function randomRange() {
