@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Sequence Finder</title>
+    <!-- <style>
+      body {
+        background-color: rgb(150, 52, 52);
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+      .Gameboard {
+        border-radius: 200px;
+        margin-top: 70px;
+        margin-left: 90px;
+        min-height: 300px;
+        min-width: 300px;
+        font-size: 10;
+      }
+      p {
+        color: black;
+
+        background-color: aqua;
+        position: relative;
+      }
+      .top-left {
+        border-top-left-radius: 1000px;
+        border-width: 4px 2px 2px 4px;
+        color: blueviolet;
+      }
+      .top-right {
+        border-top-right-radius: 100%;
+        border-width: 4px 4px 2px 2px;
+      }
+
+      .bottom-left {
+        border-bottom-left-radius: 100%;
+        border-width: 2px 2px 4px 4px;
+      }
+
+      .bottom-right {
+        border-bottom-right-radius: 100%;
+        border-width: 2px 4px 4px 2px;
+      }
+    </style> -->
+    <style>
+      body {
+        background-color: #222;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .game-board {
+        margin-top: 70px;
+        min-height: 300px;
+        min-width: 300px;
+        font-size: 0; /* handle collapsing margins */
+      }
+
+      .quadrant {
+        border-style: solid;
+        border-color: #eee;
+        display: inline-block;
+        height: 150px;
+        width: 150px;
+      }
+      p {
+        color: black;
+
+        background-color: aqua;
+        /* position: relative; */
+      }
+
+      .top-left {
+        border-top-left-radius: 100%;
+        border-width: 4px 2px 2px 4px;
+        /* background-color: aqua; */
+
+      }
+
+      .top-right {
+        border-top-right-radius: 100%;
+        border-width: 4px 4px 2px 2px;
+        /* background-color: aqua; */
+
+      }
+
+      .bottom-left {
+        border-bottom-left-radius: 100%;
+        border-width: 2px 2px 4px 4px;
+        /* background-color: aqua; */
+
+      }
+
+      .bottom-right {
+        border-bottom-right-radius: 100%;
+        border-width: 2px 4px 4px 2px;
+        /* background-color: aqua; */
+
+      }
+
+
+    </style>
+    <script src="script.js"></script>
+  </head>
+  <h1>
+    Sequence Finder
+  </h1>
+  <body>
+    <script>
+      var circle = document.createElement("div");
+      circle.className = "game-board";
+      var topDiv = document.createElement("div");
+      topDiv.className = "top";
+      var bottomDiv = document.createElement("div");
+      bottomDiv.className = "bottom";
+
+      var quad_1 = document.createElement("div");
+      quad_1.className = "top-left quadrant";
+      quad_1.style = "cursor:pointer";
+      quad_1.onclick = function () {
+        clickme(1);
+      };
+
+      var p1 = document.createElement("p");
+
+      p1.id = "1";
+      
+      var quad_2 = document.createElement("div");
+      quad_2.className = "top-right quadrant";
+      quad_2.style = "cursor:pointer";
+      quad_2.onclick = function () {
+        clickme(2);
+      };
+      var p2 = document.createElement("p");
+      p2.id = "2";
+      var quad_3 = document.createElement("div");
+      quad_3.className = "bottom-left quadrant";
+
+      quad_3.style = "cursor:pointer";
+      quad_3.onclick = function () {
+        clickme(3);
+      };
+      // quad_3.id = "node3";
+      var p3 = document.createElement("p");
+      p3.id = "3";
+      var quad_4 = document.createElement("div");
+      quad_4.className = "bottom-right quadrant";
+      quad_4.style = "cursor:pointer";
+
+      quad_4.onclick = function () {
+        clickme(4);
+      };
+      // quad_4.id = "node4";
+      var p4 = document.createElement("p");
+      p4.id = "4";
+      p1.innerHTML = "1";
+      p2.innerHTML = "2";
+      p3.innerHTML = "3";
+      p4.innerHTML = "4";
+      quad_1.appendChild(p1);
+      quad_2.appendChild(p2);
+      quad_3.appendChild(p3);
+      quad_4.appendChild(p4);  
+
+      topDiv.append(quad_1, quad_2);
+      bottomDiv.append(quad_3, quad_4);
+
+      circle.append(topDiv, bottomDiv);
+      document.body.append(circle);
+    </script>
+
+    <button name="play" onclick="startgame()">let's play</button>
+  </body>
+</html>
