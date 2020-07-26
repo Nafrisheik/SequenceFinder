@@ -3,19 +3,30 @@ var test = [];
 
 function clickme(number) {
   test.push(parseInt(number));
-  //   console.log("node1");
-  console.log(seq, test);
-  if (JSON.stringify(test) == JSON.stringify(seq)) {
-    startgame();
-  } else {
-    alert("Game over");
-    location.reload();
+  if (seq[test.length - 1] != test[test.length - 1]) {
+    alert("game over");
+    test = [];
+    seq = [];
+    document.getElementById("btn").disabled = false;
+    return;
+  }
+  if (seq.length == test.length) {
+    if (JSON.stringify(seq) == JSON.stringify(test)) {
+      console.log(seq, test);
+      test = [];
+      startgame();
+    } else {
+      alert("game over");
+      test = [];
+      seq = [];
+      document.getElementById("btn").disabled = false;
+    }
   }
 }
 
 function startgame() {
+  document.getElementById("btn").disabled = true;
   var newnumber = randomRange();
-  console.log(newnumber);
   seq.push(newnumber);
 
   document.getElementById(`${newnumber}`).style.backgroundColor = "yellow";
@@ -26,6 +37,12 @@ function startgame() {
 
 function randomRange() {
   return Math.floor(Math.random() * 4 + 1);
+}
+
+function reset() {
+  seq = [];
+  test = [];
+  document.getElementById("btn").disabled = false;
 }
 
 // document.getElementById("node1").onclick = function () {
