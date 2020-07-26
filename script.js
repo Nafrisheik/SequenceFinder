@@ -1,12 +1,21 @@
 var seq = [];
 var test = [];
-
+var score =0;
+function disablequads(){
+  var n = document.getElementsByClassName('circle')
+for(var i=0;i<n.length;i++){
+   n[i].disabled = true;
+}
+}
+disablequads();
 function clickme(number) {
+  score+=100;
   test.push(parseInt(number));
   if (seq[test.length - 1] != test[test.length - 1]) {
-    alert("game over");
+    alert("game over, Your score is",score);
     test = [];
     seq = [];
+    console.log(score);
     document.getElementById("btn").disabled = false;
     return;
   }
@@ -28,8 +37,11 @@ function startgame() {
   document.getElementById("btn").disabled = true;
   var newnumber = randomRange();
   seq.push(newnumber);
-
   document.getElementById(`${newnumber}`).style.backgroundColor = "yellow";
+  // setTimeout(function () {
+  //   document.getElementById(`${newnumber}`).style.backgroundColor = "yellow";
+  // }, 5000);
+  // document.getElementById(`${newnumber}`).style.backgroundColor = "yellow";
   setTimeout(function () {
     document.getElementById(`${newnumber}`).style.backgroundColor = "cyan";
   }, 1000);

@@ -66,10 +66,10 @@
         width: 150px;
       }
       .quadrant:hover {
-  color: #ffee10;
-  box-shadow: 0 0 5px #ffee10;
-  text-shadow: 0 0 5px #ffee10;
-}
+        color: #ffee10;
+        box-shadow: 0 0 40px #ffee10;
+        text-shadow: 0 0 5px #ffee10;
+      }
       p {
         color: black;
 
@@ -137,6 +137,11 @@
         background-color: #f44336;
         color: white;
       }
+
+      @media (max-width: 1000px){
+        
+
+      }
     </style>
     <script src="script.js"></script>
   </head>
@@ -146,6 +151,7 @@
   <body>
     <script>
       var circle = document.createElement("div");
+      circle.id="circle";
       circle.className = "game-board";
       var topDiv = document.createElement("div");
       topDiv.className = "top";
