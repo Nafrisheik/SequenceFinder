@@ -60,11 +60,16 @@
 
       .quadrant {
         border-style: solid;
-        border-color: #eee;
+        border-color: rgb(220, 22, 22);
         display: inline-block;
         height: 150px;
         width: 150px;
       }
+      .quadrant:hover {
+  color: #ffee10;
+  box-shadow: 0 0 5px #ffee10;
+  text-shadow: 0 0 5px #ffee10;
+}
       p {
         color: black;
 
@@ -97,6 +102,40 @@
         border-bottom-right-radius: 100%;
         border-width: 2px 4px 4px 2px;
         background-color: aqua;
+      }
+      .button {
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.7s;
+        cursor: pointer;
+        width: 200px;
+      }
+      .Butn {
+        background-color: white;
+        color: black;
+        border: 2px solid #f44336;
+      }
+      .Butn:hover {
+        background-color: #f44336;
+
+        color: white;
+      }
+      .Butn2 {
+        background-color: white;
+        color: black;
+        border: 2px solid #f44336;
+      }
+
+      .Butn2:hover {
+        background-color: #f44336;
+        color: white;
       }
     </style>
     <script src="script.js"></script>
@@ -166,9 +205,32 @@
 
       circle.append(topDiv, bottomDiv);
       document.body.append(circle);
+      var buttonDiv = document.createElement("div");
+      var butn = document.createElement("button");
+      butn.id = "btn";
+      butn.textContent = "Let's play";
+      butn.className = "Butn button";
+      butn.style = "cursor:pointer";
+      butn.onclick = function () {
+        startgame();
+      };
+      buttonDiv.appendChild(butn);
+      document.body.append(buttonDiv);
+
+      var butnreset = document.createElement("button");
+      butnreset.nodeName = "reset";
+      butnreset.id = "reset";
+      butnreset.textContent = "Reset Game";
+      butnreset.className = "Butn2 button";
+      butnreset.style = "cursor:pointer";
+      butnreset.onclick = function () {
+        reset();
+      };
+      buttonDiv.appendChild(butnreset);
+      // document.body.append(buttonDiv);
     </script>
 
-    <button name="play" id="btn" onclick="startgame()">let's play</button>
-    <button name="reset" id="reset" onclick="reset()">reset</button>
+    <!-- <button name="play" id="btn" onclick="startgame()">let's play</button> -->
+    <!-- <button name="reset" id="reset" onclick="reset()">reset</button> -->
   </body>
 </html>
