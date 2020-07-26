@@ -1,18 +1,19 @@
 var seq = [];
 var test = [];
-var score =0;
-function disablequads(){
-  var n = document.getElementsByClassName('circle')
-for(var i=0;i<n.length;i++){
-   n[i].disabled = true;
-}
+var score = document.createElement("td");
+score = 0;
+
+function disablequads() {
+  var n = document.getElementsByClassName("circle");
+  for (var i = 0; i < n.length; i++) {
+    n[i].disabled = true;
+  }
 }
 disablequads();
 function clickme(number) {
-  score+=100;
   test.push(parseInt(number));
   if (seq[test.length - 1] != test[test.length - 1]) {
-    alert("game over, Your score is",score);
+    alert(`game over, Your score is ${score}`);
     test = [];
     seq = [];
     console.log(score);
@@ -23,6 +24,8 @@ function clickme(number) {
     if (JSON.stringify(seq) == JSON.stringify(test)) {
       console.log(seq, test);
       test = [];
+      score += 1;
+      document.getElementById("score").innerHTML = score;
       startgame();
     } else {
       alert("game over");

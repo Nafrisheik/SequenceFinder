@@ -44,6 +44,10 @@
       }
     </style> -->
     <style>
+      h1{
+        color:rgb(0, 247, 78);
+        font-size: 50px;
+      }
       body {
         background-color: rgb(147, 79, 144);
         margin: 0;
@@ -137,11 +141,18 @@
         background-color: #f44336;
         color: white;
       }
-
-      @media (max-width: 1000px){
-        
-
+      .tabdiv{
+        top: 10px;
+        font-size: 25px;
+        color: rgb(9, 228, 35);
       }
+
+      @media all and (max-width: 500px) {
+        body {
+          background-color: aquamarine;
+        }
+      }
+      
     </style>
     <script src="script.js"></script>
   </head>
@@ -151,7 +162,7 @@
   <body>
     <script>
       var circle = document.createElement("div");
-      circle.id="circle";
+      circle.id = "circle";
       circle.className = "game-board";
       var topDiv = document.createElement("div");
       topDiv.className = "top";
@@ -234,6 +245,19 @@
       };
       buttonDiv.appendChild(butnreset);
       // document.body.append(buttonDiv);
+      var scoreDiv = document.createElement("div");
+      scoreDiv.className="tabdiv"
+      var score1 = document.createElement("table");
+      var row1 = document.createElement("tr");
+      var col1 = document.createElement("td");
+      var col2 = document.createElement("td");
+
+      col1.innerText = "Score";
+      col2.id = 'score';
+      row1.append(col1, col2);
+      score1.appendChild(row1);
+      scoreDiv.appendChild(score1);
+      document.body.appendChild(scoreDiv);
     </script>
 
     <!-- <button name="play" id="btn" onclick="startgame()">let's play</button> -->
